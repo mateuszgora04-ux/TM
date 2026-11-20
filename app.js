@@ -379,6 +379,7 @@ window.addEventListener('online', () => { if (CLOUD.on && CLOUD.ready) cloudWrit
 /* ekran logowania w wersji na telefon (GitHub Pages) */
 function cloudLoginScreen(msg) {
   const c = cloudCfg(), box = $('#gbtn'), hint = $('#loginHint');
+  $('#app').classList.add('hidden'); $('#login').classList.remove('hidden');
   $('#loginForm').hidden = true; $('#login .or').hidden = true;
   if (!c.clientId) {
     box.innerHTML = H(`<form id="cloudCfgF" class="grid" style="gap:10px;text-align:left;width:100%">

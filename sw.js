@@ -1,5 +1,5 @@
 // Service worker – aplikacja działa offline po pierwszym uruchomieniu (także z paska Windows).
-const CACHE = 'tm-v53';
+const CACHE = 'tm-v54';
 const SHELL = ['./', './index.html', './styles.css', './theme.css', './fonts/geist-latin-wght-normal.woff2', './fonts/geist-latin-ext-wght-normal.woff2', './fonts/geist-mono-latin-wght-normal.woff2', './fonts/geist-mono-latin-ext-wght-normal.woff2', './app.js', './config.js', './manifest.webmanifest',
   './icons/tm-a-logo.svg', './icons/tm-a-16.png', './icons/tm-a-32.png', './icons/tm-a-192.png', './icons/tm-a-512.png', './icons/tm-a-maskable-512.png'];
 self.addEventListener('install', e => { e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL))); self.skipWaiting(); });
