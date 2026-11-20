@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="pl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>InfoConsulting Workspace</title>
+<meta name="theme-color" content="#08090B">
+<meta name="description" content="TM – zadania i cele prywatne oraz firmowe w jednym miejscu">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icons/tm-a-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="icons/tm-a-16.png" sizes="16x16" type="image/png">
+<link rel="icon" href="icons/tm-a-192.png" sizes="192x192" type="image/png">
+<link rel="apple-touch-icon" href="icons/tm-a-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+<!-- LOGIN -->
+<section id="login" class="hidden">
+  <div class="login-card">
+    <img src="icons/tm-a-logo.svg" alt="TM">
+    <h1>TM · Task Management</h1>
+    <p>Zadania i cele – prywatne i firmowe – w jednym miejscu</p>
+    <div id="gbtn"></div>
+    <div class="or">lub e-mailem</div>
+    <form id="loginForm">
+      <label class="f">Adres e-mail<input class="input" type="email" name="email" required placeholder="jan.kowalski@gmail.com" autocomplete="email"></label>
+      <label class="f">Imię i nazwisko (opcjonalnie)<input class="input" name="name" placeholder="Jan Kowalski" autocomplete="name"></label>
+      <button class="btn primary" style="justify-content:center;padding:11px">Zaloguj</button>
+    </form>
+    <p class="hint" style="margin-top:14px" id="loginHint"></p>
+  </div>
+</section>
+
+<!-- APP -->
+<div id="app" class="hidden">
+  <header class="top">
+    <div class="navbtns"><button class="circ" id="navBack" title="Wstecz (Alt+←)" aria-label="Wstecz"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 6l-6 6 6 6"/></svg></button><button class="circ" id="navFwd" title="Dalej (Alt+→)" aria-label="Dalej"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9.5 6l6 6-6 6"/></svg></button></div>
+    <div class="crumbs" id="crumbs"></div>
+    <div class="search"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="6.5"/><path d="M20 20l-4-4"/></svg><input id="gsearch" placeholder="Szukaj lub wpisz polecenie…" autocomplete="off" spellcheck="false" aria-label="Szukaj"><kbd>Ctrl K</kbd><div id="searchDrop" class="sdrop" hidden></div></div>
+    <div class="ctx-switch" id="ctxSwitch" role="tablist" title="Kontekst pracy (Alt+1 / 2 / 3)"><button data-ctx="all">Wszystko</button><button data-ctx="job">JOB</button><button data-ctx="priv">PRIV</button></div>
+    <button class="circ eye" id="eyeBtn" data-action="privacy" title="Ukryj / pokaż dane (H)" aria-label="Ukryj lub pokaż dane" aria-pressed="true"></button>
+    <button class="btn sm install" id="installBtn"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M4.5 19.5h15"/></svg> Zainstaluj</button>
+    <span id="syncDot" class="sync-dot" data-action="nav" data-view="profile" title="Synchronizacja"></span>
+    <button class="circ bell" id="bellBtn" title="Powiadomienia" aria-label="Powiadomienia"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 16V11a5.5 5.5 0 0 1 11 0v5l1.5 2h-14z"/><path d="M10 20.5a2 2 0 0 0 4 0"/></svg><span class="ncnt" id="bellCnt" hidden></span></button>
+    <div class="avatar" id="avatar" title="Konto"></div>
+  </header>
+  <nav class="side" id="nav"></nav>
+  <main id="view"></main>
+  <footer class="player" id="player"></footer>
+  <div id="popRoot"></div>
+</div>
+<div id="modalRoot"></div>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
